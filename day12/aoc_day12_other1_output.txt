@@ -1,0 +1,11 @@
+   0 : 3x3: 0 0 1         : YES (0.026 seconds)
+   1 : 6x3: 0 0 2         : YES (0.003 seconds)
+   2 : 7x3: 1 2 0         : YES (0.003 seconds)
+   3 : 6x8: 0 0 5         :  NO (0.012 seconds)
+   4 : 100x100: 1090 0 0  : YES (2.057 seconds)
+   5 : 100x100: 0 0 1090  :  NO (2.279 seconds)
+   6 : 7x7: 1 0 4         : YES (0.018 seconds)
+   7 : 100x100: 1 0 1089  : YES (2.569 seconds)
+
+avg time = 0.871
+max time = 2.569

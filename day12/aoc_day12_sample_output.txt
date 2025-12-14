@@ -1,0 +1,6 @@
+   0 : 4x4: 0 0 0 0 2 0  : YES (0.017 seconds)
+   1 : 12x5: 1 0 1 0 2 2 : YES (0.153 seconds)
+   2 : 12x5: 1 0 1 0 3 2 :  NO (0.235 seconds)
+
+avg time = 0.135
+max time = 0.235
