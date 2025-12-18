@@ -78,13 +78,13 @@ def part1(shapes, regions, region_strs):
 		# Optimization problem:
 		# 	min 	0
 		#	s.t.	sum {o,i,j} x_soij = r_s 						{forall s}
-		#			sum {s,o,m,n} a_somn * x_so{i-m}{j-n} <= 1		{forall i,j} 
+		#			sum {s,o,m,n} a_somn * x_so{i-m}{j-n} <= 1		{forall i,j}
 		# where	x_soij = 1 if an instance of shape s is in orientation o and its top-left corner is at (i,j)
 		#			(top-left before rotation/flipping)
 		# 		r_s = required # of shape s
 		#		a_somn = 1 if shape s in orientation o placed at some (i,j) covers (i+m,j+n), 0 o/w, for
 		#			m, n in {0, 1, 2}
-		
+
 		rgn_width = region['size'][0]
 		rgn_height = region['size'][1]
 
@@ -101,7 +101,7 @@ def part1(shapes, regions, region_strs):
 								for j in range(rgn_height - 2):
 									x[(s, o, i, j)] = model.addVar(vtype=GRB.BINARY, name=f'x_{s},{o},{i},{j}')
 				soij_set = set(x.keys())
-				
+
 				# Constraint: Use the required # of each shape.
 				for s in range(len(shapes)):
 					model.addConstr(gp.quicksum(x[(s, o, i, j)] for o in orientations for i in range(rgn_width-2) for j in range(rgn_height-2) if (s,o,i,j) in soij_set) == region['shapes'][s], name=f'shape_count_{s}')
@@ -120,7 +120,7 @@ def part1(shapes, regions, region_strs):
 					total_fits += 1
 
 				fits.append(model.Status == GRB.OPTIMAL)
-				times.append(time.time() - start_time)		
+				times.append(time.time() - start_time)
 
 				model.close()
 			env.close()
@@ -131,14 +131,14 @@ def part1(shapes, regions, region_strs):
 		f.write('\n')
 		f.write(f'avg time = {np.average(times):.3f}\n')
 		f.write(f'max time = {np.max(times):.3f}\n')
-	
+
 	result = total_fits
 	return result
 
 def part2():
 
 	return result
-		
+
 def solve_aoc():
 	data = read_data()
 
